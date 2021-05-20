@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
 
+function MainInfo(props) {
+  return (
+  <>
+  <h2>{props.Title}</h2>
+  <p>{props.Text}</p>
+  </>
+  );
+ }
+
+ function BooksInfo(props) {
+  return (
+  <>
+  <ul>
+    <li>{props.Books[0]}</li>
+    <li>{props.Books[1]}</li>
+  </ul>
+  </>
+  );
+ }
+
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      < MainInfo  />
+      < BooksInfo />
+    
     </div>
   );
 }
+
+MainInfo.defaultProps = { Title: "William Shakespeare",
+ Text: "английский поэт и драматург, зачастую считается величайшим англоязычным писателем и одним из лучших драматургов мира[3]. Часто именуется национальным поэтом Англии[4]. Дошедшие до нас работы, включая некоторые, написанные совместно с другими авторами, состоят из 38 пьес, 154 сонетов, 4 поэм и 3 эпитафий. Пьесы Шекспира переведены на все основные языки и ставятся чаще, чем произведения других драматургов"};
+ 
+ BooksInfo.defaultProps={
+ Books:["Ромео и Джульетта","Гамлет"]
+ 
+};
 
 export default App;
