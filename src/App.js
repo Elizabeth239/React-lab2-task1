@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from "react";
 
 function MainInfo(props) {
   return (
@@ -19,13 +20,40 @@ function MainInfo(props) {
   </>
   );
  }
+ 
+ function Button(props) {
+ 
+
+
+  const btClick = () => {
+    console.log(props.btText);
+    props.onClickAct(props.btText);
+   
+  };
+  return <button onClick={btClick}>+{props.btText}</button>;
+}
+
+ function Display(props){
+  
+    return <div className="Display">{props.displayText}</div>;
+  
+}
 
 function App() {
+
+  const incButtonVal = 1;
+  const [btnText, setBtText] = useState(incButtonVal);
+  const handlerClick=(inc) => {
+
+    setBtText(btnText+inc);
+  };
 
   return (
     <div className="App">
       < MainInfo  />
       < BooksInfo />
+      <Button btText={incButtonVal} onClickAct={handlerClick} />
+      <Display displayText={btnText} />
     
     </div>
   );
